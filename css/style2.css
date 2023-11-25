@@ -1,0 +1,112 @@
+.container_flex { /* Configurando a div container*/
+    display: flex; /* Flex-box */
+    flex-direction: column; /* Direção da caixa*/
+    height: 100vh; /*Ocupação do container*/
+}
+.content_flex {
+    display: flex;
+    flex-grow: 1;
+}
+.top_page {
+    width: 100%;
+    height: 10%;
+}
+.content_main_login{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 70%;
+}
+.login_content{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+.login_right, .login_left{
+    flex-basis: 15%;
+    flex-grow: 1;
+}
+.login_center{
+    flex-basis: 70%;
+    flex-grow: 1;
+}
+.botton_page{
+    width: 100%;
+    height: 10%;
+}
+#login_page{
+    background-color: #595E96; /* Cor de fundo do site*/
+}
+
+.login_center{
+    background: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.login_center {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar_profile {
+    flex-basis: 30%;
+    flex-grow: 1;
+}
+
+.form_login {
+    flex-basis: 70%;
+    flex-grow: 1;
+    margin: 35.55px;
+}
+
+#login_senha label{
+    padding-left: 0;
+}
+
+#img_perfil {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+#login_senha input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+}
+
+#login_senha input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+}
+
+#botao_entrar {
+    width: 100%;
+    background-color: rgb(4, 107, 0);
+    border: none;
+    color: wite;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#botao_entrar:hover{
+    opacity: 25%;
+    background-color: blue;
+}

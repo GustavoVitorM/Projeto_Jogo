@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'> <!--Fonte-->
+    <link rel="icon" type="image/x-icon" href="img/saude-mental.png"/> <!--Icone do site-->
+    <link rel="stylesheet" type="text/css" href="css/style2.css" media="screen"> <!-- importando o arquivo css -->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Organizador Pessoal</title> <!--Título da pagina-->
+</head>
+<body id="login_page"> <!-- login_page do site-->
+    <div class="container_flex">
+        <header class="top_page"> <!--Cabeçalho-->
+            
+        </header>
+        <main class="content_flex"> <!--Conteúdo Principal-->
+            <div class="content_main_login">
+                <div class="login_content">
+                    <div class="login_left">
+
+                    </div>
+                    <div class="login_center">
+                        <div class="form_login">
+                            <form id="login_senha">
+                                <label for="campo_email">Sala</label><br>
+                                <input type="text" id="campo_sala" placeholder="1234"></input><br>
+                                <br>
+                                <input type="radio" name="opcao1" value="1"> Player vs Maquina <br><br>
+                                <input type="radio" name="opcao1" value="2"> Multiplayer local:<br>
+                                &nbsp &nbsp &nbsp<input type="radio" name="opcao2" value="1"> Player 1 <br> 
+                                &nbsp &nbsp &nbsp<input type="radio" name="opcao2" value="2"> Player 2
+                                
+                                <br><br>
+                                <button type="submit" id="botao_entrar" value="Entrar" onclick="logar()">Entrar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="login_right">
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="botton_page"> <!--Rodapé-->
+
+        </footer>
+    </div>
+</body>
+</html>

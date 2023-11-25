@@ -1,0 +1,84 @@
+* {
+    font-family: Helvetica;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 1rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: .6rem 1.2rem;
+    background-color: #888;
+    color: #fff;
+    border-radius: .25rem;
+    border: none;
+    cursor: pointer;
+    opacity: .8;
+    font-size: 1rem;
+}
+
+#open-modal {
+    background-color: #007BFF;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+#fade, #modal {
+    transition: .5s;/*tempo da animação*/ 
+    opacity: 1;
+    pointer-events: all; /* quando acontecer os eventos */
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /*Centraliza o modal */
+    background-color:#fff;
+    z-index: 10; /*O modal fica na frente de tudo*/
+    width: 500px; /*tamanho do modal*/
+    max-width: 90%; /*Para dispositivos menores a tela ajusta*/
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+#modal.hide,
+#fade.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal.hide {
+    top: 0;
+}

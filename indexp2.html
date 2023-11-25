@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <script src="js/script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Gustavo</title>
+</head>
+<body>
+    <header id="cabeçalho">
+        <h3>Pedra, Papel, Tesoura, Lagarto, Spock</h3>
+    </header>
+    <hr size="3px" id="horizontal">
+    <main>
+        <div id="cima">
+            <img id="regras" src="img/EsquemaPPTLS.png" 
+            alt="Regras pedra, papel, tesoura, lagarto, spock">
+        </div>
+        <div id="baixo">
+            <h4>Escolha pedra, papel, tesoura, lagarto ou spock</h4>
+            <div id="adversario">
+                <div class="adversario"><img src="img/pedra.png" id="pedra"></div>
+                <div class="adversario"><img src="img/papel.png" id="papel"></div>
+                <div class="adversario"><img src="img/tesoura.png" id="tesoura"></div>
+                <div class="adversario"><img src="img/lagarto.png" id="lagarto"></div>
+                <div class="adversario"><img src="img/spock.png" id="spock"></div>
+            </div>
+            <hr id="vertical">
+            <div id="player">
+                <div class="player"><img onclick="selecionar(1)" src="img/pedra.png" id="pedra"></div>
+                <div class="player"><img onclick="selecionar(2)" src="img/papel.png" id="papel"></div>
+                <div class="player"><img onclick="selecionar(3)" src="img/tesoura.png" id="tesoura"></div>
+                <div class="player"><img onclick="selecionar(4)" src="img/lagarto.png" id="lagarto"></div>
+                <div class="player"><img onclick="selecionar(5)" src="img/spock.png" id="spock"></div>
+            </div>
+        </div>
+        <div id="envio">
+            <button id="open-modal" onclick="singleplayer()">Jogar</button>
+            <div id="fade" class="hide"></div>
+            <div id="modal" class="hide">
+            <div class="modal-header">
+                <h2>Você ganhou!!</h2>
+                <button id="close-modal">Fechar</button>
+            </div>
+            <div class="modal-body">
+                <p id="a2">
+                    Maquina
+                    <img src="img/lagarto.png" alt="">
+                </p>
+                <p id="b">
+                    <img src="img/vs.jpg" alt="">
+                </p>
+                <p id="a1">
+                    Você<br>
+                    <img src="img/lagarto.png" alt="">
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

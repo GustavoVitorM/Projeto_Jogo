@@ -1,0 +1,169 @@
+* {
+    color: #fff;
+    background-color: #595E96;
+    font-family: Helvetica;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    margin: 1%;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+}
+
+main {
+    margin: 8px;
+}
+
+#cima {
+    text-align: center;
+}
+
+hr#horizontal {
+    background-color: white;
+    border: white;
+}
+
+img#regras{
+    width: 90%;
+}
+
+#baixo {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+
+div#player,
+div#adversario {
+    width: 48.6%;
+    text-align: center;
+}
+
+div#player img:hover {
+    opacity: 25%;
+}
+
+img {
+    width: 70%;
+    height: 70%;
+}
+
+
+hr#vertical {
+    width: 0.5%;
+    background-color: black;
+    border: black;
+}
+
+h4 {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#envio {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/*--------------------- MODAL ---------------------*/
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+button#open-modal,
+button#close-modal {
+    padding: .6rem 1.2rem;
+    background-color: #888;
+    color: #fff;
+    border-radius: .25rem;
+    border: none;
+    cursor: pointer;
+    opacity: .8;
+    font-size: 1rem;
+}
+
+button#open-modal {
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 20px;
+}
+
+button#open-modal:hover,
+button#close-modal:hover {
+    opacity: 1;
+}
+
+#fade, #modal {
+    transition: .5s;/*tempo da animação*/ 
+    opacity: 1;
+    pointer-events: all; /* quando acontecer os eventos */
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /*Centraliza o modal */
+    z-index: 10; /*O modal fica na frente de tudo*/
+    width: 500px; /*tamanho do modal*/
+    max-width: 90%; /*Para dispositivos menores a tela ajusta*/
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.modal-body p#a1, p#a2 {
+    width: 44%;
+    margin-bottom: 1rem;
+    height: 100%;
+}
+
+.modal-body p#b {
+    width: 30%;
+    margin-bottom: 1rem;
+    height: 100%;
+}
+
+#modal.hide,
+#fade.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal.hide {
+    top: 0;
+}
+
+.modal-body {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
