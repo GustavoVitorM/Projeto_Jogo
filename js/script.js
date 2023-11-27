@@ -29,8 +29,15 @@ const toggleModal = () => {
 
 openModalButton.addEventListener("click", () => {
     toggleModal();
-    singleplayer();
-    
+    console.log('foi ali')
+    var titulo = document.getElementsByTagName('titulo')
+    if (titulo === 'Jogo do Gustavo - Singleplayer') {
+        singleplayer()
+    } else if (titulo === 'Jogo do Gustavo - Multiplayer1') {
+        multiplayer('1')
+    } else {
+        multiplayer('2')
+    }
 })
 
 function singleplayer() {
@@ -55,8 +62,32 @@ function singleplayer() {
     adv.setAttribute("src", imagem(opcoes[esc]))
 }
 
-function selecionar(op) {
-    var todos = document.querySelectorAll("div.player img")
+function multiplayer(player) {
+    console.log(`.player${player} img.sel`)
+    var pl = document.querySelector(`div.player${player} img.sel`).id
+    var opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock']
+    var esc = parseInt(Math.random() * 5)
+    if (pl == opcoes[2] && opcoes[esc] == opcoes[1] || pl == opcoes[1] && opcoes[esc] == opcoes[0] || pl == opcoes[0] && opcoes[esc] == opcoes[3] ||
+    pl == opcoes[3] && opcoes[esc] == opcoes[4] || pl == opcoes[4] && opcoes[esc] == opcoes[2] || pl == opcoes[2] && opcoes[esc] == opcoes[3] ||
+    pl == opcoes[3] && opcoes[esc] == opcoes[1] || pl == opcoes[1] && opcoes[esc] == opcoes[4] || pl == opcoes[4] && opcoes[esc] == opcoes[0] ||
+    pl == opcoes[0] && opcoes[esc] == opcoes[2]) {
+        document.querySelector("h2").innerText = "Você ganhou!=)"
+    } else if (pl == opcoes[esc]){
+        document.querySelector("h2").innerText = "Empate! =/"
+    } else {
+        document.querySelector("h2").innerText = "voce perdeu!=("
+    }
+    console.log(pl, opcoes[esc])
+    
+    var voce = document.querySelector("#a1 img")
+    voce.setAttribute("src", imagem(pl))
+    var adv = document.querySelector("#a2 img")
+    adv.setAttribute("src", imagem(opcoes[esc]))
+}
+
+
+function selecionar(op, player) {
+    var todos = document.querySelectorAll(`div.player${player} img`)
     todos.forEach((el) => {
         el.classList.remove("sel")
         el.classList.remove("nsel")

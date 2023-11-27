@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
     <script src="js/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo do Gustavo</title>
+    <title>Jogo do Gustavo - Multiplayer1</title>
 </head>
 <body>
     <header id="cabeçalho">
@@ -20,13 +20,14 @@
         <div id="baixo">
             <h4>Escolha pedra, papel, tesoura, lagarto ou spock</h4>
             <div id="player">
-                <div class="player"><img onclick="selecionar(1)" src="img/pedra.png" id="pedra"></div>
-                <div class="player"><img onclick="selecionar(2)" src="img/papel.png" id="papel"></div>
-                <div class="player"><img onclick="selecionar(3)" src="img/tesoura.png" id="tesoura"></div>
-                <div class="player"><img onclick="selecionar(4)" src="img/lagarto.png" id="lagarto"></div>
-                <div class="player"><img onclick="selecionar(5)" src="img/spock.png" id="spock"></div>
+                <div class="player1"><img onclick="selecionar(1, '1')" src="img/pedra.png" id="pedra"></div>
+                <div class="player1"><img onclick="selecionar(2, '1')" src="img/papel.png" id="papel"></div>
+                <div class="player1"><img onclick="selecionar(3, '1')" src="img/tesoura.png" id="tesoura"></div>
+                <div class="player1"><img onclick="selecionar(4, '1')" src="img/lagarto.png" id="lagarto"></div>
+                <div class="player1"><img onclick="selecionar(5, '1')" src="img/spock.png" id="spock"></div>
             </div>
             <hr id="vertical">
+            
             <div id="adversario">
                 <div class="adversario"><img src="img/pedra.png"></div>
                 <div class="adversario"><img src="img/papel.png"></div>
@@ -36,7 +37,7 @@
             </div>
         </div>
         <div id="envio">
-            <button id="open-modal" onclick="singleplayer()">Jogar</button>
+            <button id="open-modal">Jogar</button>
             <div id="fade" class="hide"></div>
             <div id="modal" class="hide">
             <div class="modal-header">

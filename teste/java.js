@@ -1,20 +1,28 @@
-const prompt = require("prompt-sync")();
+function resolverDepoisDe2Segundos(x) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(x);
+      }, 2000);
+    });
+}
+  
+async function adicionar1(x) {
+    var a = resolverDepoisDe2Segundos(20);
+    var b = resolverDepoisDe2Segundos(30);
+    return x + (await a) + (await b);
+}
 
-for (var i = 0; i <10; i++) {
-    var pl = prompt("Escolha: Pedra, papel, tesoura, lagarto, spock: ")
-    var opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock']
-    var esc = parseInt(Math.random() * 5)
-    if (opcoes[pl] == opcoes[2] && opcoes[esc] == opcoes[1] || opcoes[pl] == opcoes[1] && opcoes[esc] == opcoes[0] || opcoes[pl] == opcoes[0] && opcoes[esc] == opcoes[3] ||
-    opcoes[pl] == opcoes[3] && opcoes[esc] == opcoes[4] || opcoes[pl] == opcoes[4] && opcoes[esc] == opcoes[2] || opcoes[pl] == opcoes[2] && opcoes[esc] == opcoes[3] ||
-    opcoes[pl] == opcoes[3] && opcoes[esc] == opcoes[1] || opcoes[pl] == opcoes[1] && opcoes[esc] == opcoes[4] || opcoes[pl] == opcoes[4] && opcoes[esc] == opcoes[0] ||
-    opcoes[pl] == opcoes[0] && opcoes[esc] == opcoes[2]) {
-        console.log(opcoes[esc])
-        console.log("Voce ganhou!")
-    } else if (opcoes[pl] == opcoes[esc]){
-        console.log(opcoes[esc])
-        console.log("Empate!")
-    } else {
-        console.log(opcoes[esc])
-        console.log("voce perdeu!")
-    }
-} 
+adicionar1(10).then((v) => {
+    console.log(v); // exibe 60 depois de 2 segundos.
+});
+
+async function adicionar2(x) {
+    var a = await resolverDepoisDe2Segundos(20);
+    var b = await resolverDepoisDe2Segundos(30);
+    return x + a + b;
+}
+
+adicionar2(10).then((v) => {
+    console.log(v); // exibe 60 depois de 4 segundos.
+});
+  
