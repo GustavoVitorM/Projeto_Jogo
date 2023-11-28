@@ -29,11 +29,10 @@ const toggleModal = () => {
 
 openModalButton.addEventListener("click", () => {
     toggleModal();
-    console.log('foi ali')
-    var titulo = document.getElementsByTagName('titulo')
-    if (titulo === 'Jogo do Gustavo - Singleplayer') {
+    var titulo = window.document.querySelector('title').id;
+    if (titulo === 'pc') {
         singleplayer()
-    } else if (titulo === 'Jogo do Gustavo - Multiplayer1') {
+    } else if (titulo === 'p1') {
         multiplayer('1')
     } else {
         multiplayer('2')
@@ -62,32 +61,33 @@ function singleplayer() {
     adv.setAttribute("src", imagem(opcoes[esc]))
 }
 
-function multiplayer(player) {
+async function multiplayer(player) {
     console.log(`.player${player} img.sel`)
-    var pl = document.querySelector(`div.player${player} img.sel`).id
     var opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock']
-    var esc = parseInt(Math.random() * 5)
-    if (pl == opcoes[2] && opcoes[esc] == opcoes[1] || pl == opcoes[1] && opcoes[esc] == opcoes[0] || pl == opcoes[0] && opcoes[esc] == opcoes[3] ||
-    pl == opcoes[3] && opcoes[esc] == opcoes[4] || pl == opcoes[4] && opcoes[esc] == opcoes[2] || pl == opcoes[2] && opcoes[esc] == opcoes[3] ||
-    pl == opcoes[3] && opcoes[esc] == opcoes[1] || pl == opcoes[1] && opcoes[esc] == opcoes[4] || pl == opcoes[4] && opcoes[esc] == opcoes[0] ||
-    pl == opcoes[0] && opcoes[esc] == opcoes[2]) {
+    var pl = document.querySelector(`.player${player} img.sel`).id
+    var pl2 = opcoes[parseInt(Math.random() * 5)]
+    if (pl == opcoes[2] && pl2 == opcoes[1] || pl == opcoes[1] && pl2 == opcoes[0] || pl == opcoes[0] && pl2 == opcoes[3] ||
+    pl == opcoes[3] && pl2 == opcoes[4] || pl == opcoes[4] && pl2 == opcoes[2] || pl == opcoes[2] && pl2 == opcoes[3] ||
+    pl == opcoes[3] && pl2 == opcoes[1] || pl == opcoes[1] && pl2 == opcoes[4] || pl == opcoes[4] && pl2 == opcoes[0] ||
+    pl == opcoes[0] && pl2 == opcoes[2]) {
         document.querySelector("h2").innerText = "Você ganhou!=)"
-    } else if (pl == opcoes[esc]){
+    } else if (pl == pl2){
         document.querySelector("h2").innerText = "Empate! =/"
     } else {
         document.querySelector("h2").innerText = "voce perdeu!=("
     }
-    console.log(pl, opcoes[esc])
+    console.log(pl, pl2)
     
     var voce = document.querySelector("#a1 img")
     voce.setAttribute("src", imagem(pl))
     var adv = document.querySelector("#a2 img")
-    adv.setAttribute("src", imagem(opcoes[esc]))
+    adv.setAttribute("src", imagem(pl2))
 }
 
 
-function selecionar(op, player) {
-    var todos = document.querySelectorAll(`div.player${player} img`)
+function selecionar(op, player='') {
+    var todos = document.querySelectorAll(`.player${player} img`)
+    console.log(`.player${player} img`)
     todos.forEach((el) => {
         el.classList.remove("sel")
         el.classList.remove("nsel")
