@@ -20,7 +20,6 @@ const fade = document.querySelector("#fade");
 
 const toggleModal = () => {
   [modal, fade].forEach((el) => el.classList.toggle("hide"));
-
 };
 
 [closeModalButton, fade].forEach((el) => {
@@ -39,6 +38,27 @@ openModalButton.addEventListener("click", () => {
     }
 })
 
+function adicionarJogada() {
+    var titulo = window.document.querySelector('title').id;
+    if (titulo === 'p1') {
+            var pl = document.querySelector(`.player1 img.sel`).id
+        if (pl !== null) {
+            localStorage.setItem('player1', pl)
+        } else {
+            console.log("não funcionou")
+        }
+    } else {
+        var pl = document.querySelector(`.player2 img.sel`).id
+        if (pl !== null) {
+            localStorage.setItem('player2', pl)
+        } else {
+            console.log("não funcionou")
+        }
+    }
+}
+
+
+
 function singleplayer() {
     var pl = document.querySelector("img.sel").id
     var opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock']
@@ -53,7 +73,6 @@ function singleplayer() {
     } else {
         document.querySelector("h2").innerText = "voce perdeu!=("
     }
-    console.log(pl, opcoes[esc])
     
     var voce = document.querySelector("#a1 img")
     voce.setAttribute("src", imagem(pl))
@@ -61,11 +80,12 @@ function singleplayer() {
     adv.setAttribute("src", imagem(opcoes[esc]))
 }
 
+
 async function multiplayer(player) {
-    console.log(`.player${player} img.sel`)
     var opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock']
-    var pl = document.querySelector(`.player${player} img.sel`).id
-    var pl2 = opcoes[parseInt(Math.random() * 5)]
+    adicionarJogada()
+    var pl = localStorage.getItem('player1')
+    var pl2 = localStorage.getItem('player2')
     if (pl == opcoes[2] && pl2 == opcoes[1] || pl == opcoes[1] && pl2 == opcoes[0] || pl == opcoes[0] && pl2 == opcoes[3] ||
     pl == opcoes[3] && pl2 == opcoes[4] || pl == opcoes[4] && pl2 == opcoes[2] || pl == opcoes[2] && pl2 == opcoes[3] ||
     pl == opcoes[3] && pl2 == opcoes[1] || pl == opcoes[1] && pl2 == opcoes[4] || pl == opcoes[4] && pl2 == opcoes[0] ||
@@ -76,7 +96,6 @@ async function multiplayer(player) {
     } else {
         document.querySelector("h2").innerText = "voce perdeu!=("
     }
-    console.log(pl, pl2)
     
     var voce = document.querySelector("#a1 img")
     voce.setAttribute("src", imagem(pl))
@@ -87,7 +106,6 @@ async function multiplayer(player) {
 
 function selecionar(op, player='') {
     var todos = document.querySelectorAll(`.player${player} img`)
-    console.log(`.player${player} img`)
     todos.forEach((el) => {
         el.classList.remove("sel")
         el.classList.remove("nsel")
