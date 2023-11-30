@@ -1,3 +1,7 @@
+function musica(mus) {
+    var x = document.getElementById(mus);
+    x.play();
+}
 
 function logar(){
     var opcao1 = document.querySelector('input[name="opcao1"]:checked').value;
@@ -68,10 +72,12 @@ function singleplayer() {
     pl == opcoes[3] && opcoes[esc] == opcoes[1] || pl == opcoes[1] && opcoes[esc] == opcoes[4] || pl == opcoes[4] && opcoes[esc] == opcoes[0] ||
     pl == opcoes[0] && opcoes[esc] == opcoes[2]) {
         document.querySelector("h2").innerText = "Você ganhou!=)"
+        musica('acertou')
     } else if (pl == opcoes[esc]){
         document.querySelector("h2").innerText = "Empate! =/"
     } else {
         document.querySelector("h2").innerText = "voce perdeu!=("
+        musica('bazinga')
     }
     
     var voce = document.querySelector("#a1 img")
@@ -83,7 +89,6 @@ function singleplayer() {
 
 async function multiplayer(player) {
     var opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock']
-    adicionarJogada()
     var pl = localStorage.getItem('player1')
     var pl2 = localStorage.getItem('player2')
     if (pl == opcoes[2] && pl2 == opcoes[1] || pl == opcoes[1] && pl2 == opcoes[0] || pl == opcoes[0] && pl2 == opcoes[3] ||
@@ -91,10 +96,12 @@ async function multiplayer(player) {
     pl == opcoes[3] && pl2 == opcoes[1] || pl == opcoes[1] && pl2 == opcoes[4] || pl == opcoes[4] && pl2 == opcoes[0] ||
     pl == opcoes[0] && pl2 == opcoes[2]) {
         document.querySelector("h2").innerText = "Você ganhou!=)"
+        musica('acerto')
     } else if (pl == pl2){
         document.querySelector("h2").innerText = "Empate! =/"
     } else {
-        document.querySelector("h2").innerText = "voce perdeu!=("
+        document.querySelector("h2").innerText = "Voce perdeu!=("
+        musica('bazinga')
     }
     
     var voce = document.querySelector("#a1 img")
@@ -130,6 +137,10 @@ function selecionar(op, player='') {
     }
     esc.classList.remove("nsel")
     esc.classList.add("sel")
+    var titulo = window.document.querySelector('title').id
+    if (titulo === 'p1' || titulo === 'p2') {
+        adicionarJogada()
+    } 
 }
 
 function imagem(op) {
